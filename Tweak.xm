@@ -69,21 +69,6 @@ long _homeButtonType = 1;
 }
 %end
 
-// Hide home bar in cover sheet
-%hook SBDashboardHomeAffordanceView
-- (void)_createStaticHomeAffordance {
-	return;
-}
-%end
-
-// Restore footer indicators
-%hook SBDashBoardViewController
-- (void)viewDidLoad {
-	originalButton = YES;
-	%orig;
-}
-%end
-
 // Restore button to invoke Siri
 %hook SBLockHardwareButtonActions
 - (id)initWithHomeButtonType:(long long)arg1 proximitySensorManager:(id)arg2 {
